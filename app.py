@@ -40,6 +40,19 @@ def list_all_user_stories():
     return render_template('list.html', stories=stories)
 
 
+@app.route('/story/', methods=['GET', 'POST'])
+def add_user_story():
+    if (request.method == "POST" and request.form["story_title"] and request.form["user_story"] and
+            request.form["acceptance_criteria"] and request.form["business_value"] and request.form["estimation"] and
+            request.form["status"] and request.form['logic'] == 'create'):
+        UserStory.create(story_title=request.form["story_title"], user_story=request.form["user_story"],
+                         acceptance_criteria=request.form["acceptance_criteria"],
+                         business_value=request.form["business_value"], estimation=request.form["estimation"],
+                         status=request.form["status"])
+        return redirect('/list/')
+    else:
+        return render_template('form.html')
+
 
 if __name__ == '__main__':
     app.run()
