@@ -3,7 +3,7 @@ from models import *
 from peewee import *
 
 
-DEBUG = True  # set it to False when done!!
+DEBUG = False  # set it to False when done!!
 SECRET_KEY = 'tr3d3cimo1a'
 
 app = Flask(__name__)
@@ -51,7 +51,7 @@ def add_user_story():
                          status=request.form["status"])
         return redirect('/list/')
     else:
-        return render_template('form.html')
+        return render_template('form_add_new_story.html')
 
 
 @app.route('/story/<story_id>', methods=['POST', 'GET'])
@@ -67,7 +67,7 @@ def update_user_story(story_id):
         update.save()
         return redirect('/list/')
     except:
-        return render_template('form.html')
+        return render_template('form_update_story.html')
 
 
 @app.route('/delete/', methods=['GET'])
