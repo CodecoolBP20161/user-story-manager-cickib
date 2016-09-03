@@ -9,9 +9,6 @@ SECRET_KEY = 'tr3d3cimo1a'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-DATABASE = 'sprint_reporter'
-database = PostgresqlDatabase(DATABASE)
-
 
 @app.before_request
 def before_request():
@@ -40,6 +37,9 @@ def list_all_user_stories():
     return render_template('list.html', stories=stories)
 
 
+status_options = ["Planning", "To Do", "In Progress", "Review", "Done"]
+
+
 @app.route('/story/', methods=['GET', 'POST'])
 def add_user_story():
     if (request.method == "POST" and request.form["story_title"] and request.form["user_story"] and
@@ -51,23 +51,29 @@ def add_user_story():
                          status=request.form["status"])
         return redirect('/list/')
     else:
-        return render_template('add.html')
+        return render_template('add.html', options=status_options)
 
 
 @app.route('/story/<story_id>', methods=['POST', 'GET'])
 def update_user_story(story_id):
+    unselected_options = []
+    edit_story = UserStory.select().where(UserStory.id == story_id).get()
+    for option in status_options:
+        if edit_story.status == option:
+            pass
+        else:
+            unselected_options.append(option)
     try:
-        edit_story = UserStory.select().where(UserStory.id == story_id).get()
-        edit_story.story_title=request.form['story_title']
-        edit_story.user_story=request.form['user_story']
-        edit_story.acceptance_criteria=request.form['acceptance_criteria']
-        edit_story.business_value=request.form['business_value']
-        edit_story.estimation=request.form['estimation']
-        edit_story.status=request.form['status']
+        edit_story.story_title = request.form['story_title']
+        edit_story.user_story = request.form['user_story']
+        edit_story.acceptance_criteria = request.form['acceptance_criteria']
+        edit_story.business_value = request.form['business_value']
+        edit_story.estimation = request.form['estimation']
+        edit_story.status = request.form['status']
         edit_story.save()
         return redirect('/list/')
     except:
-        return render_template('update.html', edit_story=edit_story)
+        return render_template('update.html', edit_story=edit_story, options=unselected_options)
 
 
 @app.route('/delete/', methods=['GET'])

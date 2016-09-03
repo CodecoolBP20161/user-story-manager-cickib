@@ -1,10 +1,12 @@
 {% extends "form.html" %}
+
 {% block title %} - Add new Story{% endblock %}
 {% block head %}
     {{ super() }}
 {% endblock %}
 
 {% block logic %} - Add new Story{% endblock %}
+
 
 {% block business_value %}
 <input type="number"  id="business_value" name="business_value" min="100" max="1500" step="100" value="100">
@@ -16,4 +18,10 @@
 
 {% block content %}
 <input type="submit" name="logic" id="create" value="Create">
+{% endblock %}
+
+{% block status %}
+    {% for n in options %}
+        <option id="status" name=n>{{n}}</option>
+    {% endfor %}
 {% endblock %}

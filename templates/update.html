@@ -8,8 +8,6 @@
 {% block logic %} - Edit Story{% endblock %}
 
 
-{% if edit_story %}
-
 {% block story_title %}
 {{edit_story.story_title}}
 {% endblock %}
@@ -31,17 +29,13 @@
 {% endblock %}
 
 {% block status %}
-<option id="status" name="status">{{edit_story.status}}</option>
+    <option id="status" name="status" selected>{{edit_story.status}}</option>
+    {% for n in options %}
+        <option id="status" name=n>{{n}}</option>
+    {% endfor %}
 {% endblock %}
-
-{% endif %}
 
 
 {% block content %}
 <input type="submit" name="logic" id="update" value="Update">
 {% endblock %}
-
-
-
-
-

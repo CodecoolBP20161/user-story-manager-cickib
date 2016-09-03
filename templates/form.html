@@ -6,37 +6,29 @@
         {% endblock %}
     </head>
         <body>
-
-        <h1>User Story Manager{% block logic %}{% endblock %}</h1>
-            <form action="" method="post">
-                <fieldset>
-                     <p><label for="story_title" id="story_title" name="story_title">Story Title</label></p>
-                <div id="story_title">
-                            <textarea id="story_title" name="story_title" rows="1" cols="50" style="resize:none">{% block story_title %}{% endblock %}</textarea></div>
+            <h1>User Story Manager{% block logic %}{% endblock %}</h1>
+                <form action="" method="post">
+                    <fieldset>
+                        <p><label for="story_title" id="story_title" name="story_title">Story Title</label></p>
+                        <div id="story_title">
+                            <textarea id="story_title" name="story_title" rows="1" cols="50" style="resize:none">{% block story_title %}{% endblock %}</textarea>
+                        </div>
                         <p><label for="user_story" id="user_story" name="user_story">User Story</label></p>
                             <textarea id="user_story" name="user_story" rows="4" cols="50">{% block user_story %}{% endblock %}</textarea>
                         <p><label for="acceptance_criteria" id="acceptance_criteria" name="acceptance_criteria">Acceptance Criteria</label></p>
                             <textarea id="acceptance_criteria" name="acceptance_criteria" rows="4" cols="50">{% block criteria %}{% endblock %}</textarea>
                         <p><label for="business_value" id="business_value" name="business_value">Business Value</label></p>
                             <div id="business_value">{% block business_value %}{% endblock %}</div>
-
-                            <!--input type="range"  name="business_value" min="100" max="1500" step="100" value="100"-->
                         <p><label for="estimation" id="estimation" name="estimation">Estimation</label></p>
                             <div id="estimation">{% block estimation %}{% endblock %}</div>
                         <p><label for="status" id="status" name="status">Status</label></p>
-                            <select name="status" id="status" value="done">
-                                <div id="status">{% block status %}{% endblock %}</div>
-                                <option value="Planning" id="planning" name="planning">Planning</option>
-                                <option value="To do" id="to_do" name="to_do">To Do</option>
-                                <option value="In progress" id="in_progress" name="in_progress">In Progress</option>
-                                <option value="Review" id="review" name="review">Review</option>
-                                <option value="Done" id="done" name="done">Done</option>
-                            </select>
-                    <br>
-                    <br>
-                    <div id="content">{% block content %}{% endblock %}</div>
-
-                </fieldset>
-            </form>
+                        <select name="status" id="status">
+                            <div id="status">{% block status %}{% endblock %}</div>
+                        </select>
+                        <br>
+                        <br>
+                        <div id="content">{% block content %}{% endblock %}</div>
+                    </fieldset>
+                </form>
         </body>
 </html>
