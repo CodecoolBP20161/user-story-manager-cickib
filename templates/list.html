@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Story Manager</title>
+    </head>
+
+    <body>
+        <h1>User Story Manager</h1>
+        <table>
+            <tr>
+                <th width="100">ID</th>
+                <th width="100">Story Title</th>
+                <th width="100">User Story</th>
+                <th width="100">Acceptance Criteria</th>
+                <th width="100">Business Value</th>
+                <th width="100">Estimation</th>
+                <th width="100">Status</th>
+            </tr>
+        {% for i in stories %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.story_title}}</td>
+                <td>{{i.user_story}}</td>
+                <td>{{i.acceptance_criteria}}</td>
+                <td>{{i.business_value}}</td>
+                <td>{{i.estimation}}</td>
+                <td>{{i.status}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <br>
+        <a href="../story/">Add a new User Story</a>
+    </body>
+</html>

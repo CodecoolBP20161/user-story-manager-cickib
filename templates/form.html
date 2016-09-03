@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Story Manager</title>
+    </head>
+        <body>
+        <h1>User Story Manager - Add new Story</h1>
+            <form action="" method="post">
+                <fieldset>
+                    <p>Story Title</p>
+                            <textarea id="story_title" name="story_title" rows="1" cols="50" style="resize:none"></textarea>
+                        <p>User Story</p>
+                            <textarea id="user_story" name="user_story" rows="4" cols="50"></textarea>
+                        <p>Acceptance Criteria</p>
+                            <textarea id="acceptance_criteria" name="acceptance_criteria" rows="4" cols="50"></textarea>
+                        <p>Business Value</p>
+                            <input type="number"  id="business_value" name="business_value" min="100" max="1500" step="100" value="100">
+                            <!--input type="range"  name="business_value" min="100" max="1500" step="100" value="100"-->
+                        <p>Estimation</p>
+                            <input type="number"  id="estimation" name="estimation" min="0.5" max="40" step="0.5" value="0.5">
+                        <p>Status</p>
+                            <select name="status" id="status">
+                                <option value="Planning" id="planning" name="planning">Planning</option>
+                                <option value="To do" id="to_do" name="to_do">To Do</option>
+                                <option value="In progress" id="in_progress" name="in_progress">In Progress</option>
+                                <option value="Review" id="review" name="review">Review</option>
+                                <option value="Done" id="done" name="done">Done</option>
+                            </select>
+                    <br>
+                    <br>
+                    <input type="submit" value="save">
+                </fieldset>
+                </form>
+        </body>
+</html>
