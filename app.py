@@ -54,5 +54,10 @@ def add_user_story():
         return render_template('form.html')
 
 
+@app.route('/delete/', methods=['GET'])
+def delete_user_story():
+    UserStory.delete().where(UserStory.id == request.args.get("story_id")).execute()
+    return redirect('/list/')
+
 if __name__ == '__main__':
     app.run()
