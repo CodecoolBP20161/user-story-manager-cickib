@@ -3,7 +3,7 @@ from models import *
 from peewee import *
 
 
-DEBUG = False  # set it to False when done!!
+DEBUG = False
 SECRET_KEY = 'tr3d3cimo1a'
 
 app = Flask(__name__)
@@ -51,23 +51,23 @@ def add_user_story():
                          status=request.form["status"])
         return redirect('/list/')
     else:
-        return render_template('form_add_new_story.html')
+        return render_template('add.html')
 
 
 @app.route('/story/<story_id>', methods=['POST', 'GET'])
 def update_user_story(story_id):
     try:
-        update = UserStory.select().where(UserStory.id == story_id).get()
-        update.story_title=request.form['story_title']
-        update.user_story=request.form['user_story']
-        update.acceptance_criteria=request.form['acceptance_criteria']
-        update.business_value=request.form['business_value']
-        update.estimation=request.form['estimation']
-        update.status=request.form['status']
-        update.save()
+        edit_story = UserStory.select().where(UserStory.id == story_id).get()
+        edit_story.story_title=request.form['story_title']
+        edit_story.user_story=request.form['user_story']
+        edit_story.acceptance_criteria=request.form['acceptance_criteria']
+        edit_story.business_value=request.form['business_value']
+        edit_story.estimation=request.form['estimation']
+        edit_story.status=request.form['status']
+        edit_story.save()
         return redirect('/list/')
     except:
-        return render_template('form_update_story.html')
+        return render_template('update.html', edit_story=edit_story)
 
 
 @app.route('/delete/', methods=['GET'])

@@ -6,15 +6,17 @@
         {% endblock %}
     </head>
         <body>
-        <h1>User Story Manager - Add new Story</h1>
+
+        <h1>User Story Manager{% block logic %}{% endblock %}</h1>
             <form action="" method="post">
                 <fieldset>
                      <p><label for="story_title" id="story_title" name="story_title">Story Title</label></p>
-                            <textarea id="story_title" name="story_title" rows="1" cols="50" style="resize:none"></textarea>
+                <div id="story_title">
+                            <textarea id="story_title" name="story_title" rows="1" cols="50" style="resize:none">{% block story_title %}{% endblock %}</textarea></div>
                         <p><label for="user_story" id="user_story" name="user_story">User Story</label></p>
-                            <textarea id="user_story" name="user_story" rows="4" cols="50"></textarea>
+                            <textarea id="user_story" name="user_story" rows="4" cols="50">{% block user_story %}{% endblock %}</textarea>
                         <p><label for="acceptance_criteria" id="acceptance_criteria" name="acceptance_criteria">Acceptance Criteria</label></p>
-                            <textarea id="acceptance_criteria" name="acceptance_criteria" rows="4" cols="50"></textarea>
+                            <textarea id="acceptance_criteria" name="acceptance_criteria" rows="4" cols="50">{% block criteria %}{% endblock %}</textarea>
                         <p><label for="business_value" id="business_value" name="business_value">Business Value</label></p>
                             <input type="number"  id="business_value" name="business_value" min="100" max="1500" step="100" value="100">
                             <!--input type="range"  name="business_value" min="100" max="1500" step="100" value="100"-->
@@ -31,6 +33,7 @@
                     <br>
                     <br>
                     <div id="content">{% block content %}{% endblock %}</div>
+
                 </fieldset>
             </form>
         </body>

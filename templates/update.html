@@ -1,0 +1,35 @@
+{% extends "form.html" %}
+
+{% block title %} - Edit Story{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block logic %} - Edit Story{% endblock %}
+
+
+{% if edit_story %}
+
+{% block story_title %}
+{{edit_story.story_title}}
+{% endblock %}
+
+{% block user_story %}
+{{ edit_story.story_title }}
+{% endblock %}
+
+{% block criteria %}
+{{edit_story.acceptance_criteria}}
+{% endblock %}
+
+{% endif %}
+
+
+{% block content %}
+<input type="submit" name="logic" id="update" value="Update">
+{% endblock %}
+
+
+
+
+
