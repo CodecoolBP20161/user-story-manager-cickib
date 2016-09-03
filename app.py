@@ -57,13 +57,14 @@ def add_user_story():
 @app.route('/story/<story_id>', methods=['POST', 'GET'])
 def update_user_story(story_id):
     try:
-        modify = UserStory.select().where(UserStory.id == story_id).get()
-        modify.update(story_title=request.form['story_title'],
-                      user_story=request.form['user_story'],
-                      acceptance_criteria=request.form['acceptance_criteria'],
-                      business_value=request.form['business_value'],
-                      estimation=request.form['estimation'],
-                      status=request.form['status']).execute()
+        update = UserStory.select().where(UserStory.id == story_id).get()
+        update.story_title=request.form['story_title']
+        update.user_story=request.form['user_story']
+        update.acceptance_criteria=request.form['acceptance_criteria']
+        update.business_value=request.form['business_value']
+        update.estimation=request.form['estimation']
+        update.status=request.form['status']
+        update.save()
         return redirect('/list/')
     except:
         return render_template('form.html')
