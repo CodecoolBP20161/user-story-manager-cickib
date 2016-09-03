@@ -54,6 +54,21 @@ def add_user_story():
         return render_template('form.html')
 
 
+@app.route('/story/<story_id>', methods=['POST', 'GET'])
+def update_user_story(story_id):
+    try:
+        modify = UserStory.select().where(UserStory.id == story_id).get()
+        modify.update(story_title=request.form['story_title'],
+                      user_story=request.form['user_story'],
+                      acceptance_criteria=request.form['acceptance_criteria'],
+                      business_value=request.form['business_value'],
+                      estimation=request.form['estimation'],
+                      status=request.form['status']).execute()
+        return redirect('/list/')
+    except:
+        return render_template('form.html')
+
+
 @app.route('/delete/', methods=['GET'])
 def delete_user_story():
     UserStory.delete().where(UserStory.id == request.args.get("story_id")).execute()
