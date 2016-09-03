@@ -44,7 +44,7 @@ def list_all_user_stories():
 def add_user_story():
     if (request.method == "POST" and request.form["story_title"] and request.form["user_story"] and
             request.form["acceptance_criteria"] and request.form["business_value"] and request.form["estimation"] and
-            request.form["status"] and request.form['logic'] == 'create'):
+            request.form["status"]):
         UserStory.create(story_title=request.form["story_title"], user_story=request.form["user_story"],
                          acceptance_criteria=request.form["acceptance_criteria"],
                          business_value=request.form["business_value"], estimation=request.form["estimation"],
