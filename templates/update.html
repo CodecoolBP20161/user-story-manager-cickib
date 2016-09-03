@@ -15,11 +15,23 @@
 {% endblock %}
 
 {% block user_story %}
-{{ edit_story.story_title }}
+{{ edit_story.user_story }}
 {% endblock %}
 
 {% block criteria %}
 {{edit_story.acceptance_criteria}}
+{% endblock %}
+
+{% block business_value %}
+<input type="number"  id="business_value" name="business_value" min="100" max="1500" step="100" value={{edit_story.business_value}}>
+{% endblock %}
+
+{% block estimation %}
+<input type="number"  id="estimation" name="estimation" min="0.5" max="40" step="0.5"  value={{edit_story.estimation}}>
+{% endblock %}
+
+{% block status %}
+<option id="status" name="status">{{edit_story.status}}</option>
 {% endblock %}
 
 {% endif %}
