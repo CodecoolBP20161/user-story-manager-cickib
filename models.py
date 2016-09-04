@@ -15,6 +15,8 @@ class Basemodel(Model):
 
 
 class UserStory(Basemodel):
+    status_options = ["Planning", "To Do", "In Progress", "Review", "Done"]
+
     story_title = CharField()
     user_story = TextField()
     acceptance_criteria = TextField()

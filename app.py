@@ -37,9 +37,6 @@ def list_all_user_stories():
     return render_template('list.html', stories=stories)
 
 
-status_options = ["Planning", "To Do", "In Progress", "Review", "Done"]
-
-
 @app.route('/story/', methods=['GET', 'POST'])
 def add_user_story():
     if (request.method == "POST" and request.form["story_title"] and request.form["user_story"] and
@@ -51,14 +48,14 @@ def add_user_story():
                          status=request.form["status"])
         return redirect('/list/')
     else:
-        return render_template('add.html', options=status_options)
+        return render_template('add.html', options=UserStory.status_options)
 
 
 @app.route('/story/<story_id>', methods=['POST', 'GET'])
 def update_user_story(story_id):
     unselected_options = []
     edit_story = UserStory.select().where(UserStory.id == story_id).get()
-    for option in status_options:
+    for option in UserStory.status_options:
         if edit_story.status == option:
             pass
         else:
