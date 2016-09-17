@@ -36,11 +36,10 @@
 
                     <div class="form-group">
                         <label for="story_title" id="story_title" name="story_title">Story Title</label>
-
                         <div id="story_title">
                             <input type="text" class="form-control" id="story_title" name="story_title"
                                    value="{% block story_title %}{% endblock %}" required data-toggle="tooltip"
-                                   title="Enter the title of the user story.">
+                                   title="Enter the title of the user story."></input>
                         </div>
                     </div>
 
@@ -49,9 +48,9 @@
                         <label for="user_story" id="user_story" name="user_story">User Story</label>
 
                         <div id="user_story">
-                            <input type="text" class="form-control" id="user_story" name="user_story"
-                                   value="{% block user_story %}{% endblock %}" required data-toggle="tooltip"
-                                   title="Enter the goal of the user story.">
+                            <textarea class="form-control vresize" id="user_story" name="user_story" required
+                                      data-toggle="tooltip"
+                                      title="Enter the goal of the user story.">{% block user_story %}{% endblock %}</textarea>
                         </div>
                     </div>
 
@@ -60,9 +59,9 @@
                             Criteria</label>
 
                         <div id="acceptance_criteria">
-                            <input type="text" class="form-control" id="acceptance_criteria" name="acceptance_criteria"
-                                   value="{% block criteria %}{% endblock %}" required data-toggle="tooltip"
-                                   title="Enter the details of the user story.">
+                            <textarea class="form-control vresize" id="acceptance_criteria" name="acceptance_criteria"
+                                      required data-toggle="tooltip"
+                                      title="Enter the details of the user story.">{% block criteria %}{% endblock %}</textarea>
                         </div>
                     </div>
 
@@ -97,6 +96,7 @@
                     <br>
                     <br>
                     <div id="content">{% block content %}{% endblock %}</div>
+
                 </fieldset>
             </form>
         </div>

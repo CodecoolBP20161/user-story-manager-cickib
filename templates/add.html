@@ -21,9 +21,15 @@
 {% block content %}
 
 
-    <button type="submit" name="logic" id="create" class="btn btn-default" value="Create" data-toggle="tooltip"
+    <button type="submit" name="logic" id="create" class="btn btn-success" value="Create" data-toggle="tooltip"
             title="When finished, create the new user story and save it to the database.">Create <span
             class="glyphicon glyphicon-ok"></span></button>
+
+    <a href="../list/">
+        <button type="button" class="btn btn-warning" name="cancel" id="cancel" data-toggle="tooltip"
+                title="Cancel current user story and go back to the list page.">Cancel <span
+                class="glyphicon glyphicon-off"></span></button>
+    </a>
 {% endblock %}
 
 {% block status %}

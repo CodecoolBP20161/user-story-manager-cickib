@@ -29,7 +29,7 @@
         <div class="col-sm-8">
             <h1>User Story Manager</h1>
             <div class="table-responsive">
-                <table class="table table-striped table-hover ">
+                <table class="table table-striped table-hover " style="text-align: center;">
                     <tr>
                         <th>ID</th>
                         <th width="150">Story Title</th>
@@ -51,6 +51,8 @@
                             <td>{{ i.estimation }}</td>
                             <td>{{ i.status }}</td>
                             <td>
+
+
                                 <div class="btn-group">
 
                                     <a href="{{ url_for('update_user_story', story_id=i.id) }}">
