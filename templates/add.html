@@ -9,19 +9,24 @@
 
 
 {% block business_value %}
-<input type="number"  id="business_value" name="business_value" min="100" max="1500" step="100" value="100">
+    <input type="number" class="form-control" id="business_value" name="business_value" min="100" max="1500" step="100"
+           value="100">
 {% endblock %}
 
 {% block estimation %}
-<input type="number"  id="estimation" name="estimation" min="0.5" max="40" step="0.5"  value="0.5">
+    <input type="number" class="form-control" id="estimation" name="estimation" min="0.5" max="40" step="0.5"
+           value="0.5">
 {% endblock %}
 
 {% block content %}
-<input type="submit" name="logic" id="create" value="Create">
+
+
+    <button type="submit" name="logic" id="create" class="btn btn-default" value="Create">Create <span
+            class="glyphicon glyphicon-ok"></span></button>
 {% endblock %}
 
 {% block status %}
     {% for n in options %}
-        <option id="status" name=n>{{n}}</option>
+        <option id="status" name=n>{{ n }}</option>
     {% endfor %}
 {% endblock %}

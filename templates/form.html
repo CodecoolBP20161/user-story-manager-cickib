@@ -24,33 +24,77 @@
             </ul>
         </div>
     </nav>
-    <h1>User Story Manager{% block logic %}{% endblock %}</h1>
-    <form action="" method="post">
-        <fieldset>
-            <p><label for="story_title" id="story_title" name="story_title">Story Title</label></p>
-            <div id="story_title">
-                <textarea id="story_title" name="story_title" rows="1" cols="50"
-                          style="resize:none">{% block story_title %}{% endblock %}</textarea>
-            </div>
-            <p><label for="user_story" id="user_story" name="user_story">User Story</label></p>
-            <textarea id="user_story" name="user_story" rows="4"
-                      cols="50">{% block user_story %}{% endblock %}</textarea>
-            <p><label for="acceptance_criteria" id="acceptance_criteria" name="acceptance_criteria">Acceptance
-                Criteria</label></p>
-            <textarea id="acceptance_criteria" name="acceptance_criteria" rows="4"
-                      cols="50">{% block criteria %}{% endblock %}</textarea>
-            <p><label for="business_value" id="business_value" name="business_value">Business Value</label></p>
-            <div id="business_value">{% block business_value %}{% endblock %}</div>
-            <p><label for="estimation" id="estimation" name="estimation">Estimation</label></p>
-            <div id="estimation">{% block estimation %}{% endblock %}</div>
-            <p><label for="status" id="status" name="status">Status</label></p>
-            <select name="status" id="status">
-                <div id="status">{% block status %}{% endblock %}</div>
-            </select>
-            <br>
-            <br>
-            <div id="content">{% block content %}{% endblock %}</div>
-        </fieldset>
-    </form>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h1>User Story Manager
+                <small>{% block logic %}{% endblock %}</small>
+            </h1>
+            <form action="" method="post">
+                <fieldset>
+
+
+                    <div class="form-group">
+                        <label for="story_title" id="story_title" name="story_title">Story Title</label>
+
+                        <div id="story_title">
+                            <input type="text" class="form-control" id="story_title" name="story_title"
+                                   value="{% block story_title %}{% endblock %}" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="user_story" id="user_story" name="user_story">User Story</label>
+
+                        <div id="user_story">
+                            <input type="text" class="form-control" id="user_story" name="user_story"
+                                   value="{% block user_story %}{% endblock %}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="acceptance_criteria" id="acceptance_criteria" name="acceptance_criteria">Acceptance
+                            Criteria</label>
+
+                        <div id="acceptance_criteria">
+                            <input type="text" class="form-control" id="acceptance_criteria" name="acceptance_criteria"
+                                   value="{% block criteria %}{% endblock %}" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="business_value" id="business_value" name="business_value">Business Value</label>
+
+                        <div id="business_value">{% block business_value %}{% endblock %}
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="estimation" id="estimation" name="estimation">Estimation</label>
+
+                        <div id="estimation">{% block estimation %}{% endblock %}
+
+                        </div>
+                    </div>
+
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status" name="status">
+                        <div id="status">{% block status %}{% endblock %}
+                            <class
+                            ="form-control">
+
+                    </select>
+                    <br>
+                    <br>
+                    <div id="content">{% block content %}{% endblock %}</div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
     </body>
+</div>
 </html>
