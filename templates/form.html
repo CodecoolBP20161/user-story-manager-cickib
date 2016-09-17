@@ -39,7 +39,8 @@
 
                         <div id="story_title">
                             <input type="text" class="form-control" id="story_title" name="story_title"
-                                   value="{% block story_title %}{% endblock %}" required>
+                                   value="{% block story_title %}{% endblock %}" required data-toggle="tooltip"
+                                   title="Enter the title of the user story.">
                         </div>
                     </div>
 
@@ -49,7 +50,8 @@
 
                         <div id="user_story">
                             <input type="text" class="form-control" id="user_story" name="user_story"
-                                   value="{% block user_story %}{% endblock %}" required>
+                                   value="{% block user_story %}{% endblock %}" required data-toggle="tooltip"
+                                   title="Enter the goal of the user story.">
                         </div>
                     </div>
 
@@ -59,7 +61,8 @@
 
                         <div id="acceptance_criteria">
                             <input type="text" class="form-control" id="acceptance_criteria" name="acceptance_criteria"
-                                   value="{% block criteria %}{% endblock %}" required>
+                                   value="{% block criteria %}{% endblock %}" required data-toggle="tooltip"
+                                   title="Enter the details of the user story.">
                         </div>
                     </div>
 
@@ -67,7 +70,8 @@
                     <div class="form-group">
                         <label for="business_value" id="business_value" name="business_value">Business Value</label>
 
-                        <div id="business_value">{% block business_value %}{% endblock %}
+                        <div id="business_value" data-toggle="tooltip" title="Business value of the user story.">
+                            {% block business_value %}{% endblock %}
 
                         </div>
                     </div>
@@ -76,13 +80,15 @@
                     <div class="form-group">
                         <label for="estimation" id="estimation" name="estimation">Estimation</label>
 
-                        <div id="estimation">{% block estimation %}{% endblock %}
+                        <div id="estimation" data-toggle="tooltip" title="Estimated time to complete the user story.">
+                            {% block estimation %}{% endblock %}
 
                         </div>
                     </div>
 
                     <label for="status">Status</label>
-                    <select class="form-control" id="status" name="status">
+                    <select class="form-control" id="status" name="status" data-toggle="tooltip"
+                            title="Current status of the user story.">
                         <div id="status">{% block status %}{% endblock %}
                             <class
                             ="form-control">
