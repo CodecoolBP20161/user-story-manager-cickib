@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 </head>
 <div class="container-fluid">
     <body style=" padding-top: 70px;">
@@ -53,11 +54,11 @@
                                 <div class="btn-group">
 
                                     <a href="{{ url_for('update_user_story', story_id=i.id) }}">
-                                        <button type="button" class="btn btn-link"><span
+                                        <button type="button" class="btn btn-link" id="glyph"><span
                                                 class="glyphicon glyphicon-pencil"></span></button>
                                     </a>
                                     <a href="{{ url_for('delete_user_story', story_id=i.id) }}">
-                                        <button type="button" class="btn btn-link"><span
+                                        <button type="button" class="btn btn-link" id="glyph"><span
                                                 class="glyphicon glyphicon-remove"></span></button>
                                     </a>
 
@@ -69,7 +70,11 @@
                 </table>
             </div>
             <br>
-            <a href="../story/">Add a new User Story</a>
+            <button type="button" class="btn btn-link">
+
+                <a href="../story/">Add a new User Story</a>
+
+            </button>
         </div>
         <div class="col-sm-2"></div>
     </body>
