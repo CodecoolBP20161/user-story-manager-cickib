@@ -39,7 +39,15 @@
 
 
 {% block content %}
-    <button type="submit" name="logic" id="update" class="btn btn-default" value="Update" data-toggle="tooltip"
+    <button type="submit" name="logic" id="update" class="btn btn-info" value="Update" data-toggle="tooltip"
             title="When finished with the editing, save the updated user story to the database.">Update <span
             class="glyphicon glyphicon-ok"></span></button>
+
+
+    <a href="{{ url_for('delete_user_story', story_id=edit_story.id) }}">
+        <button type="button" class="btn btn-danger" name="delete" id="delete" data-toggle="tooltip"
+                title="Delete user story from the database.">Delete <span
+                class="glyphicon glyphicon-remove"></span></button>
+    </a>
+
 {% endblock %}
