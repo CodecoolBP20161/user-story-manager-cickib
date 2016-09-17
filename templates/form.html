@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        {% block head %}
+<head>
+    {% block head %}
         <title>User Story Manager {% block title %}{% endblock %}</title>
-        {% endblock %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    </head>
-        <body>
-            <h1>User Story Manager{% block logic %}{% endblock %}</h1>
-                <form action="" method="post">
-                    <fieldset>
-                        <p><label for="story_title" id="story_title" name="story_title">Story Title</label></p>
-                        <div id="story_title">
-                            <textarea id="story_title" name="story_title" rows="1" cols="50" style="resize:none">{% block story_title %}{% endblock %}</textarea>
-                        </div>
-                        <p><label for="user_story" id="user_story" name="user_story">User Story</label></p>
-                            <textarea id="user_story" name="user_story" rows="4" cols="50">{% block user_story %}{% endblock %}</textarea>
-                        <p><label for="acceptance_criteria" id="acceptance_criteria" name="acceptance_criteria">Acceptance Criteria</label></p>
-                            <textarea id="acceptance_criteria" name="acceptance_criteria" rows="4" cols="50">{% block criteria %}{% endblock %}</textarea>
-                        <p><label for="business_value" id="business_value" name="business_value">Business Value</label></p>
-                            <div id="business_value">{% block business_value %}{% endblock %}</div>
-                        <p><label for="estimation" id="estimation" name="estimation">Estimation</label></p>
-                            <div id="estimation">{% block estimation %}{% endblock %}</div>
-                        <p><label for="status" id="status" name="status">Status</label></p>
-                        <select name="status" id="status">
-                            <div id="status">{% block status %}{% endblock %}</div>
-                        </select>
-                        <br>
-                        <br>
-                        <div id="content">{% block content %}{% endblock %}</div>
-                    </fieldset>
-                </form>
-        </body>
+    {% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<div class="container-fluid">
+    <body style=" padding-top: 70px;">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">User Story Manager</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/">List all</a></li>
+                <li class="active"><a href="../story/">Add new</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://github.com/CodecoolBP20161/user-story-manager-cickib">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+    <h1>User Story Manager{% block logic %}{% endblock %}</h1>
+    <form action="" method="post">
+        <fieldset>
+            <p><label for="story_title" id="story_title" name="story_title">Story Title</label></p>
+            <div id="story_title">
+                <textarea id="story_title" name="story_title" rows="1" cols="50"
+                          style="resize:none">{% block story_title %}{% endblock %}</textarea>
+            </div>
+            <p><label for="user_story" id="user_story" name="user_story">User Story</label></p>
+            <textarea id="user_story" name="user_story" rows="4"
+                      cols="50">{% block user_story %}{% endblock %}</textarea>
+            <p><label for="acceptance_criteria" id="acceptance_criteria" name="acceptance_criteria">Acceptance
+                Criteria</label></p>
+            <textarea id="acceptance_criteria" name="acceptance_criteria" rows="4"
+                      cols="50">{% block criteria %}{% endblock %}</textarea>
+            <p><label for="business_value" id="business_value" name="business_value">Business Value</label></p>
+            <div id="business_value">{% block business_value %}{% endblock %}</div>
+            <p><label for="estimation" id="estimation" name="estimation">Estimation</label></p>
+            <div id="estimation">{% block estimation %}{% endblock %}</div>
+            <p><label for="status" id="status" name="status">Status</label></p>
+            <select name="status" id="status">
+                <div id="status">{% block status %}{% endblock %}</div>
+            </select>
+            <br>
+            <br>
+            <div id="content">{% block content %}{% endblock %}</div>
+        </fieldset>
+    </form>
+    </body>
 </html>
