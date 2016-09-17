@@ -49,9 +49,21 @@
                             <td>{{ i.business_value }}</td>
                             <td>{{ i.estimation }}</td>
                             <td>{{ i.status }}</td>
-                                            <td><a href="{{ url_for('update_user_story', story_id=i.id)}}"><img src="{{ url_for('static', filename='pencil.png') }}" width="15" height="15" alt="Edit"></a></td>
-                <td><a href="{{ url_for('delete_user_story', story_id=i.id) }}"><img src="{{ url_for('static', filename='bin.png') }}" width="15" height="15" alt="Delete"></a></td>
+                            <td>
+                                <div class="btn-group">
 
+                                    <a href="{{ url_for('update_user_story', story_id=i.id) }}">
+                                        <button type="button" class="btn btn-link"><span
+                                                class="glyphicon glyphicon-pencil"></span></button>
+                                    </a>
+                                    <a href="{{ url_for('delete_user_story', story_id=i.id) }}">
+                                        <button type="button" class="btn btn-link"><span
+                                                class="glyphicon glyphicon-remove"></span></button>
+                                    </a>
+
+
+                                </div>
+                            </td>
                         </tr>
                     {% endfor %}
                 </table>
